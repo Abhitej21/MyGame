@@ -7,11 +7,11 @@ const Message = ({winner,current}) => {
    });
    
     return (
-        <h2>
-            {winner && `winner is ${winner}`}
-            {!winner && !noMoves && `Next Player is ${current.isXNext?'X':'0'}`}
-            {!winner && noMoves && `X and 0 are tied`}
-        </h2>
+        <div className="status-message">
+            {winner && <>Winner is <span className={winner==='X'?'text-green':'text-orange'} style={{fontWeight:'bold'}}>{winner}</span></>}
+            {!winner && !noMoves && <>Next player is <span className={current.isXNext?'text-green':'text-orange'}>{current.isXNext?'X':'0'}</span></>}
+            {!winner && noMoves && <><span className="text-green">X</span> and <span className="text-orange">0</span> are tied</>}
+        </div>
     );
 
 };
